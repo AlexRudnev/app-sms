@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "drovakie_test1",
+        "password": "3h&6Gpc4~Z",
+        "database": "drovakie_test1",
+        "host": "drovakie.mysql.tools",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "drovakie_test1",
+        "password": "3h&6Gpc4~Z",
+        "database": "drovakie_test1",
+        "host": "drovakie.mysql.tools",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "drovakie_test1",
+        "password": "3h&6Gpc4~Z",
+        "database": "drovakie_test1",
+        "host": "drovakie.mysql.tools",
+        "dialect": "mysql"
+    }
+}

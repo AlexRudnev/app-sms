@@ -1,17 +1,14 @@
-
-
 import Axios from "axios";
 import { useState } from "react";
 
 import './AllClient.css'
 
 const EmployeesListItem = (props) => {
-   const { id, name, mobile, date, ord, ColorSmile } = props
+   const { id, name, mobile, date, ord, ColorSmile, deleteEmployee } = props
    const [curentSmileColor, setCurentSmileColor] = useState(ColorSmile)
 
-
+   //--------------------------- ИЗМЕНЯЕМ В БАЗЕ ДАННЫХ ТРУ НА ФОЛС ColorSmile ---------------------------------------//
    const updateEmployeeWage = (id) => {
-      console.log(id)
       Axios.put(`http://localhost:3000/update`,
          {
             ColorSmile: !ColorSmile,
@@ -19,6 +16,8 @@ const EmployeesListItem = (props) => {
          })
       setCurentSmileColor(!curentSmileColor)
    }
+
+
 
    let addClass = 'j-c'
    if (curentSmileColor) {
@@ -35,8 +34,10 @@ const EmployeesListItem = (props) => {
             <i className="far fa-smile fa-lg" onClick={() => {
                updateEmployeeWage(id);
             }}></i>
+            <i className="fas fa-trash-alt fa-lg" onClick={() => {
+               deleteEmployee(id);
+            }}></i>
 
-            <i className="fas fa-trash-alt fa-lg"></i>
          </li>
       </div >
    )

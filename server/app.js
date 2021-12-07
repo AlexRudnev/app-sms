@@ -60,16 +60,17 @@ app.put('/update', (req, res) => {
 });
 
 
-// app.delete("/delete/:id", (req, res) => {
-//     const id = req.params.id;
-//     db.query("DELETE FROM employees WHERE id = ?", id, (err, result) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.send(result);
-//       }
-//     });
-//   });
+app.delete("/delete/:id", (req, res) => {
+    const id = req.params.id;
+    connection.query("DELETE FROM `Binotel2s` WHERE id = ?", id,
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        });
+});
 
 app.listen(4000, () => {
     console.log('запустился сервер на 4000 порту')

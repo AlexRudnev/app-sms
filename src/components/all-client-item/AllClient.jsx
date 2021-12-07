@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import EmployeesListItem from './AllClientItem'
-// import Axios from "axios";
+import Axios from "axios";
 
 import './AllClient.css'
 
 
 
-const AllClient = ({ onDelete }) => {
+const AllClient = ({ deleteEmployee }) => {
 
    const [error, setError] = useState(null);
    const [isLoaded, setIsLoaded] = useState(false);
@@ -29,18 +29,6 @@ const AllClient = ({ onDelete }) => {
    }, [])
 
 
-   // const updateEmployeeWage = (id) => {
-   //    console.log(id)
-   //    Axios.put(`http://localhost:3000/update`,
-   //       {
-   //          ColorSmile: !ColorSmile,
-   //          id: id,
-   //       })
-   //       .then(response => response.data.ColorSmile)
-   // }
-
-
-
 
 
 
@@ -51,9 +39,19 @@ const AllClient = ({ onDelete }) => {
             key={id}
             id={id}
             {...itemProps}
-            // onClick={updateEmployeeWage}
-            onDelete={() => onDelete(id)}
-         />
+            deleteEmployee={(id) => {
+               console.log(id)
+               var answer = window.confirm("Уверен что нужно удалить клиента из базы?");
+               if (answer) {
+                  Axios.delete(`http://localhost:3000/delete/${id}`).then((response) => {
+                     setItems(
+                        items.filter((val) => {
+                           return val.id !== id;
+                        })
+                     );
+                  });
+               } else { }
+            }} />
       )
    })
 

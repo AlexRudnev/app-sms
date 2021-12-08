@@ -11,7 +11,13 @@ const AllClient = ({ deleteEmployee }) => {
    const [error, setError] = useState(null);
    const [isLoaded, setIsLoaded] = useState(false);
    const [items, setItems] = useState([]);
-   // const [ColorSmile] = useState(true)
+
+   useEffect(() => {
+      Axios.post(`http://localhost:3000/mobilka`, {
+         items
+      })
+   }, [items])
+
 
    useEffect(() => {
       fetch("http://localhost:3000/hello")
@@ -34,11 +40,14 @@ const AllClient = ({ deleteEmployee }) => {
 
    const element = items.map(item => {
       const { id, ...itemProps } = item;
+
       return (
          <EmployeesListItem
             key={id}
             id={id}
             {...itemProps}
+
+            //-------------- обработчик удаления из базы данных строк клиентов --------------------------//
             deleteEmployee={(id) => {
                console.log(id)
                var answer = window.confirm("Уверен что нужно удалить клиента из базы?");
@@ -51,10 +60,11 @@ const AllClient = ({ deleteEmployee }) => {
                      );
                   });
                } else { }
-            }} />
+            }}
+
+         />
       )
    })
-
 
 
    if (error) {

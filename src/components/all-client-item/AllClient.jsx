@@ -13,10 +13,8 @@ const AllClient = ({ deleteEmployee }) => {
    const [items, setItems] = useState([]);
 
    useEffect(() => {
-      Axios.post(`http://localhost:3000/mobilka`, {
-         items
-      })
-   }, [items])
+      Axios.put(`http://localhost:3000/changeOrd`)
+   })
 
 
    useEffect(() => {

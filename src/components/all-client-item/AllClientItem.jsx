@@ -7,12 +7,6 @@ const EmployeesListItem = (props) => {
    const { id, name, mobile, date, ord, ColorSmile, deleteEmployee } = props
    const [curentSmileColor, setCurentSmileColor] = useState(ColorSmile)
 
-   // console.log(mobile)
-   // Axios.post(`http://localhost:3000/mobilka`, {
-   //    mobile: 'mobile'
-   // })
-
-
    //--------------------------- ИЗМЕНЯЕМ В БАЗЕ ДАННЫХ ТРУ НА ФОЛС ColorSmile ---------------------------------------//
    const updateEmployeeWage = (id) => {
       Axios.put(`http://localhost:3000/update`,

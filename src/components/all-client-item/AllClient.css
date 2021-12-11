@@ -8,9 +8,16 @@
     padding: 5px 0 0 0;
 }
 
+.list-group-item:hover .j-c {
+    height: initial;
+    cursor: default;
+}
+
 .j-c {
     width: 100%;
-    text-align: center;
+    text-align: left;
+    padding-left: 20px;
+    height: 30px;
 }
 
 .fa-smile {

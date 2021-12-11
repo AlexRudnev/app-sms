@@ -12,7 +12,7 @@ import './AllClient.css'
 
 
 const AllClient = () => {
-   // const [nowItem, setNowItem] = useState([])
+   const [nowItem, setNowItem] = useState([])
    const [error, setError] = useState(null);
    const [isLoaded, setIsLoaded] = useState(false);
    const [items, setItems] = useState([]);
@@ -33,7 +33,8 @@ const AllClient = () => {
             (result) => {
                setIsLoaded(true);
                setItems(result);
-
+               setNowItem(result)
+               // console.log(incidents)
             },
             (error) => {
                setIsLoaded(true);
@@ -100,12 +101,13 @@ const AllClient = () => {
                handlClick={(status) => {
 
                   if (status === 'all') {
-
-                     setItems(items)
-                     console.log(items)
+                     setItems(nowItem)
+                     console.log(nowItem)
                   } else {
-                     let newItem = [...items].filter(item => item.ord === status)
+                     let newItem = nowItem.filter(item => item.ord === status)
                      setItems(newItem)
+                     console.log(newItem)
+                     console.log(items)
                   }
 
                }}

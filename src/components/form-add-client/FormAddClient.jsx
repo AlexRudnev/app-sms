@@ -1,14 +1,17 @@
 import { useState } from "react";
 import Axios from "axios";
+// import AppFilter from '../app-filter/app-filter'
 
 import './formAdd.css'
 
 
 
-function FormAddClient() {
+function FormAddClient(handlClick) {
    const [name, setName] = useState("");
    const [mobile, setMobile] = useState(0);
    const [employeeList, setEmployeeList] = useState([]);
+   // console.log(employeeList)
+
 
    const addEmployee = () => {
       Axios.post("http://localhost:3000/create", {
@@ -25,22 +28,29 @@ function FormAddClient() {
       });
    };
 
+
+   // const handlClick = () => {
+
+   // }
+
+
+
    return (
       <div className="app-add-form">
-         <h3>Добавьте нового сотрудника</h3>
+         <h3>Добавьте нового клиента</h3>
          <form
             className="add-form d-flex"
          // onSubmit={this.onSubmit}
          >
             <input type="text"
                className="form-control new-post-label"
-               placeholder="Как зовут?"
+               placeholder="Имя клиента"
                onChange={(event) => {
                   setName(event.target.value)
                }} />
             <input type="number"
                className="form-control new-post-label"
-               placeholder="Телефон?"
+               placeholder="Телефон"
                onChange={(event) => {
                   setMobile(event.target.value)
                }} />
@@ -49,6 +59,8 @@ function FormAddClient() {
                className="btn btn-outline-light"
                onClick={addEmployee}>Добавить</button>
          </form>
+         {/* <AppFilter /> */}
+
       </div>
    )
 

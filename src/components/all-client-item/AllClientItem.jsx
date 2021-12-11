@@ -1,6 +1,5 @@
 import Axios from "axios";
 import { useState } from "react";
-
 import './AllClient.css'
 
 const EmployeesListItem = (props) => {

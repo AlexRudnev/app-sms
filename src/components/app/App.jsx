@@ -15,16 +15,15 @@ class App extends Component {
     this.state = {
       data: data
     }
-    // this.maxId = 6;
   }
 
-  deleteItem = (id) => {
-    this.setState(({ data }) => {
-      return {
-        data: data.filter(item => item.id !== id)
-      }
-    })
-  }
+  // deleteItem = (id) => {
+  //   this.setState(({ data }) => {
+  //     return {
+  //       data: data.filter(item => item.id !== id)
+  //     }
+  //   })
+  // }
 
 
 
@@ -34,7 +33,6 @@ class App extends Component {
     return (
       <div className="app" >
         <Sidebar />
-        {/* <FormAddClient onAdd={this.addItem} /> */}
         <FormAddClient />
         <FormSearch />
         <AllClient

@@ -4,7 +4,7 @@ const { body } = require('express-validator');
 const bodeParser = require('body-parser')
 const UserControler = require('./controlers/binotel-controler')
 const { Binotel2 } = require('./models')
-const cors = require('cors')
+    // const cors = require('cors')
 
 var mysql = require('mysql');
 
@@ -28,13 +28,13 @@ app.get('/', function(req, res) {
 //Распарсивает json значения 
 app.use(bodeParser.json());
 app.use(bodeParser.urlencoded({ extended: true }));
-app.use(
-    cors({
-        credentials: true,
-        origin: ["http://localhost:3000"],
-        optionsSuccessStatus: 200
-    })
-);
+// app.use(
+//     cors({
+//         credentials: true,
+//         origin: ["http://localhost:3000"],
+//         optionsSuccessStatus: 200
+//     })
+// );
 
 
 //------------------------------ получаем весь список клиентов из базы данных ---------------------------------------//
@@ -72,7 +72,7 @@ app.put('/update', (req, res) => {
 // --------------------------- удаляем из базы данных значения при нажатии на кнопку удалить -----------------------------//
 app.delete("/delete/:id", (req, res) => {
     const id = req.params.id;
-    connection.query("DELETE FROM `Binotel2s` WHERE id = ?", id,
+    connection.query("DELETE FROM `Binotel2s` WHERE id = ?", [id],
         (err, result) => {
             if (err) {
                 console.log(err);

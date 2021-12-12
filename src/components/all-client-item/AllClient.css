@@ -1,23 +1,35 @@
 .flex-1 {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; 
+    justify-content: space-between; */
     font-size: 20px;
+    display: grid;
+    grid-template-columns: 4fr 1fr 2fr 1fr 1fr;
+} 
+
+.flex-1:hover {
+    border-color: rgba(102, 101, 101, 0.541);
 }
 
 .list-group-item {
     padding: 5px 0 0 0;
 }
 
-.list-group-item:hover .j-c {
-    height: initial;
-    cursor: default;
-}
-
 .j-c {
     width: 100%;
     text-align: left;
     padding-left: 20px;
-    height: 30px;
+    max-height: 30px;
+    transition: max-height 0.5s;
+    text-align: center;
+}
+
+.j-c:first-child {
+    text-align: left;
+}
+
+.j-c:hover {
+    max-height: 100px;
+    cursor: default;
 }
 
 .fa-smile {
@@ -40,4 +52,8 @@
 
 .first {
     background-color: rgba(102, 101, 101, 0.459);
+}
+
+.fa-container {
+    justify-self: end;
 }

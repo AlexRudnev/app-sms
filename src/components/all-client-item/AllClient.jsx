@@ -34,7 +34,7 @@ const AllClient = () => {
                setIsLoaded(true);
                setItems(result);
                setNowItem(result)
-               // console.log(incidents)
+
             },
             (error) => {
                setIsLoaded(true);
@@ -99,12 +99,26 @@ const AllClient = () => {
          <div >
             <AppFilter
                handlClick={(status) => {
+                  if (status === 'all') {
+                     setItems(nowItem)
+                     // console.log(nowItem)
+                  } else {
+                     let newItem = nowItem.filter(item => item.ord === status)
+                     setItems(newItem)
+                     console.log(newItem)
+
+
+                  }
+
+               }}
+
+               greenClick={(status) => {
 
                   if (status === 'all') {
                      setItems(nowItem)
                      console.log(nowItem)
                   } else {
-                     let newItem = nowItem.filter(item => item.ord === status)
+                     let newItem = nowItem.filter(item => item.ColorSmile === status)
                      setItems(newItem)
                      console.log(newItem)
                      console.log(items)

@@ -29,20 +29,20 @@ const EmployeesListItem = (props) => {
    }
 
    return (
-      <div >
-         <li className="flex-1 list-group-item " >
-            <span className={addClass}>{name}</span>
-            <span className={addClass}>{mobile}</span>
-            <span className={addClass}>{date}</span>
-            <span className={addClass}>{addOrder}</span>
+      <li className="flex-1 list-group-item " >
+         <span className={addClass}>{name}</span>
+         <span className={addClass}>{mobile}</span>
+         <span className={addClass}>{date}</span>
+         <span className={addClass}>{addOrder}</span>
+         <div className="fa-container">
             <i className="far fa-smile fa-lg" onClick={() => {
                updateEmployeeWage(id);
             }}></i>
             <i className="fas fa-trash-alt fa-lg" onClick={() => {
                deleteEmployee(id);
             }}></i>
-         </li>
-      </div >
+         </div>
+      </li>
    )
 }
 

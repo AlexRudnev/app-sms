@@ -87,9 +87,6 @@ const AllClient = () => {
       )
    })
 
-
-
-
    if (error) {
       return <div>Ошибка: {error.message}</div>;
    } else if (!isLoaded) {
@@ -130,12 +127,14 @@ const AllClient = () => {
             <ul className='list-group ' >
                <li className='flex-1 list-group-item first'>
                   <span className='j-c ' >Имя</span>
-                  <span className='j-c '>Телефон</span>
+                  <span className='j-c '>Телефон</span>                                                                                                                                                                                               
                   <span className='j-c '>Дата регистрации</span>
                   <span className='j-c '>Был заказ?</span>
-                  <i className="far fa-smile fa-lg"></i>
-                  <i className="fas fa-trash-alt fa-lg" ></i>
-               </li>
+                  {/* <div>
+                     <i className="far fa-smile fa-lg"></i>
+                     <i className="fas fa-trash-alt fa-lg" ></i>
+                  </div> */}
+               </li>                                                                                                                                                                                                                                  
                {element}
 
             </ul >

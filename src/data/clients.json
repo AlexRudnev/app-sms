@@ -1,7 +1,0 @@
-[
-    { "id": 1, "name": "Rois", "tel": "0635674521", "day": "Bator ", "order": false, "active": false, "ColorSmile": false },
-    { "id": 2, "name": "Alex Rois", "tel": "0635674521", "day": "Bator", "order": false, "active": false, "ColorSmile": false },
-    { "id": 3, "name": "Vlad Rois", "tel": "0635674521", "day": "Bator", "order": false, "active": false, "ColorSmile": false },
-    { "id": 4, "name": "Dima Rois", "tel": "0635674521", "day": "Bator", "order": false, "active": false, "ColorSmile": false },
-    { "id": 5, "name": "Nikita Rois", "tel": "0635674521", "day": "Bator", "order": true, "active": false, "ColorSmile": false }
-]

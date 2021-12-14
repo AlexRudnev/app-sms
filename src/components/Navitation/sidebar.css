@@ -1,11 +1,11 @@
 .sidebar {
-    position: relative;
+    position: fixed;
     left: 0;
     top: 0;
     background-color: #ffffff;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
     overflow: hidden;
     background-color: #c2c2c2;
     -webkit-transform: translateZ(0);
@@ -43,7 +43,7 @@ header {
 }
 
 .sidebar-nav {
-    /* //width: 13em; */
+    width: 11.5em;
     background-color: #c5c5c5;
     height: 100%;
     font-weight: 400;
@@ -55,18 +55,20 @@ header {
     -webkit-overflow-scrolling: touch;
 }
 
-.ul {
+.ul, .nav-flyout {
     list-style: none;
     display: block;
 }
 
 
-/* li {
+
+
+li {
     margin-left: 0;
     padding-left: 0;
     display: inline-block;
     width: 100%;
-} */
+}
 
 a {
     color: rgba(0, 0, 0, 0.9);

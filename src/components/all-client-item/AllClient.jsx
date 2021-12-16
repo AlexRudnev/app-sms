@@ -4,9 +4,7 @@ import Pagination from './pagination';
 import AppFilter from "../app-filter/app-filter";
 
 
-
 import Axios from "axios";
-
 import './AllClient.css'
 
 
@@ -98,8 +96,8 @@ const AllClient = () => {
                handlClick={(status) => {
                   if (status === 'all') {
                      setItems(nowItem)
-                     // console.log(nowItem)
                   } else {
+                     console.log(nowItem)
                      let newItem = nowItem.filter(item => item.ord === status)
                      setItems(newItem)
                      console.log(newItem)
@@ -127,14 +125,14 @@ const AllClient = () => {
             <ul className='list-group ' >
                <li className='flex-1 list-group-item first'>
                   <span className='j-c ' >Имя</span>
-                  <span className='j-c '>Телефон</span>                                                                                                                                                                                               
-                  <span className='j-c '>Дата регистрации</span>
+                  <span className='j-c '>Телефон</span>
+                  <span className='j-c '>Последний звонок</span>
                   <span className='j-c '>Был заказ?</span>
                   {/* <div>
                      <i className="far fa-smile fa-lg"></i>
                      <i className="fas fa-trash-alt fa-lg" ></i>
                   </div> */}
-               </li>                                                                                                                                                                                                                                  
+               </li>
                {element}
 
             </ul >

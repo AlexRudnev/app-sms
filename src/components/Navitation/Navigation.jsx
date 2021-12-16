@@ -14,13 +14,13 @@ const Navigations = props => {
          <header>
             Дрова Киев
          </header>
-         <nav class="sidebar-nav">
+         <nav className="sidebar-nav">
 
             <ul className="ul">
                <li>
                   <Link to="/" style={{ textDecoration: 'none' }}><i className="fas fa-tasks "></i> <span>Задачи сегодня</span></Link>
                   <Link to="/all" style={{ textDecoration: 'none' }}><i className="fas fa-sort-amount-down-alt"></i> <span>Фильтры</span></Link>
-                  <ul class="nav-flyout">
+                  <ul className="nav-flyout">
                      <li>
                         <Link to="/all" style={{ textDecoration: 'none' }}>Дрова</Link>
                      </li>
@@ -34,7 +34,7 @@ const Navigations = props => {
                </li>
 
                <li>
-                  <Link to="/all" style={{ textDecoration: 'none' }}><i className="fas fa-address-book"></i> <span class="">Все клиенты</span></Link>
+                  <Link to="/all" style={{ textDecoration: 'none' }}><i className="fas fa-address-book"></i> <span className="">Все клиенты</span></Link>
 
                </li>
             </ul>

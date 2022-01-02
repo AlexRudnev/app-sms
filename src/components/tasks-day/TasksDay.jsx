@@ -14,7 +14,7 @@ const TasksDay = () => {
 
    // ------------------------- при загрузке страницы выводим из mySQL базу клиентов --------------------------------------//
    useEffect(() => {
-      fetch("http://localhost:3000/list")
+      fetch("/list")
          .then(res => res.json())
          .then(
             (result) => {

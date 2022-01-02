@@ -25,7 +25,7 @@ const AllClient = () => {
 
    // ------------------------- при загрузке страницы выводим из mySQL базу клиентов --------------------------------------//
    useEffect(() => {
-      fetch("http://localhost:3000/hello")
+      fetch("/hello")
          .then(res => res.json())
          .then(
             (result) => {
@@ -71,7 +71,7 @@ const AllClient = () => {
                console.log(items)
                var answer = window.confirm("Уверен что нужно удалить клиента из базы?");
                if (answer) {
-                  Axios.delete(`http://localhost:3000/delete/${id}`).then((response) => {
+                  Axios.delete(`/delete/${id}`).then((response) => {
                      setItems(
                         currentItem.filter((val) => {
                            return val.id !== id;
@@ -80,7 +80,6 @@ const AllClient = () => {
                   });
                } else { }
             }}
-
          />
       )
    })
@@ -101,14 +100,10 @@ const AllClient = () => {
                      let newItem = nowItem.filter(item => item.ord === status)
                      setItems(newItem)
                      console.log(newItem)
-
-
                   }
-
                }}
 
                greenClick={(status) => {
-
                   if (status === 'all') {
                      setItems(nowItem)
                      console.log(nowItem)
@@ -118,9 +113,7 @@ const AllClient = () => {
                      console.log(newItem)
                      console.log(items)
                   }
-
                }}
-
             />
             <ul className='list-group ' >
                <li className='flex-1 list-group-item first'>

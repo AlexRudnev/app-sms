@@ -7,7 +7,7 @@ const TasksDayItem = (props) => {
 
    //--------------------------- ИЗМЕНЯЕМ В БАЗЕ ДАННЫХ ТРУ НА ФОЛС ColorSmile ---------------------------------------//
    const updateEmployeeWage = (id) => {
-      Axios.put(`http://localhost:3000/update`,
+      Axios.put(`/update`,
          {
             ColorSmile: !ColorSmile,
             id: id,

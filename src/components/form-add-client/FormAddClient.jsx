@@ -13,22 +13,38 @@ function FormAddClient(handlClick) {
    const [clients, setClients] = useState([]);
    // const [clientsWithOrder, setClientsWithOrder] = useState([]); 
    const [hasLoaded, setHasLoaded] = useState(false);
+   const [error, setError] = useState(null);
+
 
    useEffect(() => {
-      fetch("http://localhost:3000/hello")
-         .then(res => res.json())
+      fetch("hello")
+         .then((res) => {
+            return res.json();
+         })
          .then(
             (result) => {
                setHasLoaded(true);
                setClients(result);
             },
+            (error) => {
+               setHasLoaded(true);
+               setError(error);
+            }
          )
+
+      // Axios.get("/hello")
+      //    .then(
+      //       (result) => {
+      //          setHasLoaded(true);
+      //          setClients(result);
+      //       },
+      //    )
    }, [])
 
    const clientsWithOrder = clients.filter(client => client.ord === true);
 
    const addEmployee = () => {
-      Axios.post("http://localhost:3000/create", {
+      Axios.post("/create", {
          name: name,
          mobile: mobile,
       }).then(() => {
@@ -48,44 +64,48 @@ function FormAddClient(handlClick) {
    // }
 
 
-
-   return (
-      <div className="app-add-form">
-         <div>
-            <h3>Добавьте нового клиента</h3>
-            <form
-               className="add-form d-flex"
-            // onSubmit={this.onSubmit}
-            >
-               <input type="text"
-                  className="form-control new-post-label"
-                  placeholder="Имя клиента"
-                  onChange={(event) => {
-                     setName(event.target.value)
-                  }} />
-               <input type="number"
-                  className="form-control new-post-label"
-                  placeholder="Телефон"
-                  onChange={(event) => {
-                     setMobile(event.target.value)
-                  }} />
-
-               <button type="submit"
-                  className="btn btn-outline-light"
-                  onClick={addEmployee}>Добавить</button>
-            </form>
-         </div>
-         {/* <AppFilter /> */}
-         {hasLoaded &&
+   if (error) {
+      return <div>Ошибка: {error.message}</div>;
+   } else if (!hasLoaded) {
+      return <div>Загрузка...</div>;
+   } else {
+      return (
+         <div className="app-add-form">
             <div>
-               <p className="clients-stats">Всего клиентов: {clients.length}</p>
-               <p className="clients-stats">Клиенты с заказом: {clientsWithOrder.length}</p>
-            </div>
-         }
-      </div>
-   )
-}
+               <h3>Добавьте нового клиента</h3>
+               <form
+                  className="add-form d-flex"
+               // onSubmit={this.onSubmit}
+               >
+                  <input type="text"
+                     className="form-control new-post-label"
+                     placeholder="Имя клиента"
+                     onChange={(event) => {
+                        setName(event.target.value)
+                     }} />
+                  <input type="number"
+                     className="form-control new-post-label"
+                     placeholder="Телефон"
+                     onChange={(event) => {
+                        setMobile(event.target.value)
+                     }} />
 
+                  <button type="submit"
+                     className="btn btn-outline-light"
+                     onClick={addEmployee}>Добавить</button>
+               </form>
+            </div>
+            {/* <AppFilter /> */}
+            {hasLoaded &&
+               <div>
+                  <p className="clients-stats">Всего клиентов: {clients.length}</p>
+                  <p className="clients-stats">Клиенты с заказом: {clientsWithOrder.length}</p>
+               </div>
+            }
+         </div>
+      )
+   }
+}
 export default FormAddClient;
 
 

@@ -31,7 +31,7 @@ app.use(bodeParser.urlencoded({ extended: true }));
 // app.use(
 //     cors({
 //         credentials: true,
-//         origin: ["http://localhost:3000"],
+//         origin: ["http://localhost:4000"],
 //         optionsSuccessStatus: 200
 //     })
 // );
@@ -43,7 +43,6 @@ app.get('/hello', (req, res) => {
         .then((data) => {
             res.json(data);
         })
-
 })
 
 // --------------------------- пост запрос - в котором постим в базу данных значения о клиенте -----------------------------//

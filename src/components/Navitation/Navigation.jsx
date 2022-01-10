@@ -1,40 +1,36 @@
-
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './sidebar.css'
 
 
 
-const Navigations = props => {
+const Navigations = (props) => {
 
 
    return (
-
-
       <div className="sidebar">
-         <header>
-            Дрова Киев
-         </header>
          <nav className="sidebar-nav">
-
-            <ul className="ul">
-               <li>
-                  <Link to="/" style={{ textDecoration: 'none' }}><i className="fas fa-tasks "></i> <span>Задачи сегодня</span></Link>
-                  <Link to="/all" style={{ textDecoration: 'none' }}><i className="fas fa-sort-amount-down-alt"></i> <span>Фильтры</span></Link>
+            <div className='logo'>CRM</div>
+            <div className='after-logo'>DROVA-KIEV</div>
+            <hr className='hr' />
+            <ul>
+               <li >
+                  <NavLink to="/" style={{ textDecoration: 'none' }}><i className="fas fa-tasks "></i> <span className="icon active">Задачи сегодня</span></NavLink>
+                  <NavLink to="/filter" style={{ textDecoration: 'none' }}><i className="fas fa-sort-amount-down-alt"></i> <span className="icon">Фильтры</span></NavLink>
                   <ul className="nav-flyout">
                      <li>
-                        <Link to="/all" style={{ textDecoration: 'none' }}>Дрова</Link>
+                        <NavLink to="/filter/firewood" style={{ textDecoration: 'none' }}>Дрова</NavLink>
                      </li>
                      <li>
-                        <Link to="/all" style={{ textDecoration: 'none' }}>Пеллеты</Link>
+                        <NavLink to="/filter/pellets" style={{ textDecoration: 'none' }}>Пеллеты</NavLink>
                      </li>
                      <li>
-                        <Link to="/all" style={{ textDecoration: 'none' }}>Брикеты</Link>
+                        <NavLink to="/filter/briquets" style={{ textDecoration: 'none' }}>Брикеты</NavLink>
                      </li>
                   </ul>
                </li>
 
                <li>
-                  <Link to="/all" style={{ textDecoration: 'none' }}><i className="fas fa-address-book"></i> <span className="">Все клиенты</span></Link>
+                  <NavLink to="/all" style={{ textDecoration: 'none' }}><i className="fas fa-address-book"></i> <span className="icon">Все клиенты</span></NavLink>
 
                </li>
             </ul>

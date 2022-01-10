@@ -4,14 +4,17 @@
     font-size: 20px;
     display: grid;
     grid-template-columns: 4fr 1fr 2fr 1fr 1fr;
-} 
+}
 
 .flex-1:hover {
-    border-color: rgba(102, 101, 101, 0.541);
+    /* border-color: rgba(102, 101, 101, 0.541); */
+    color: #0d6efd;
+    border-color: #0d6efd;
 }
 
 .list-group-item {
     padding: 5px 0 0 0;
+    border-color: #0d6efd;
 }
 
 .j-c {
@@ -51,7 +54,9 @@
 }
 
 .first {
-    background-color: rgba(102, 101, 101, 0.459);
+    /* background-color: rgba(102, 101, 101, 0.459); */
+    color: #0d6efd;
+    border-color: #0d6efd;
 }
 
 .fa-container {

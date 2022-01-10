@@ -59,11 +59,6 @@ function FormAddClient(handlClick) {
    };
 
 
-   // const handlClick = () => {
-
-   // }
-
-
    if (error) {
       return <div>Ошибка: {error.message}</div>;
    } else if (!hasLoaded) {

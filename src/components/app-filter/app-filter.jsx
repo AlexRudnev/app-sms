@@ -32,9 +32,9 @@ const AppFilter = (props) => {
       <div className="btn-group">
          {/* {buttons} */}
          <button type="button" className={`btn btn-outline-primary`} onClick={() => handlClick('all')}>Все клиенты</button>
-         <button type="button" className={`btn btn-outline-success`} onClick={() => handlClick(true)}>Был заказ</button>
-         <button type="button" className={`btn btn-outline-danger`} onClick={() => handlClick(false)}>Без заказа</button>
-         <button type="button" className={`btn btn-outline-success`} onClick={() => greenClick(true)}>Зеленые</button>
+         <button type="button" className={`btn btn-outline-primary`} onClick={() => handlClick(true)}>Был заказ</button>
+         <button type="button" className={`btn btn-outline-primary`} onClick={() => handlClick(false)}>Без заказа</button>
+         <button type="button" className={`btn btn-outline-primary`} onClick={() => greenClick(true)}>Зеленые</button>
       </div>
    )
 }

@@ -4,47 +4,17 @@
     top: 0;
     background-color: #ffffff;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    /* width: 100%; */
-    /* height: 100%; */
+    width: 15%;
+    height: 100%;
     overflow: hidden;
-    background-color: #c2c2c2;
+    /* background: rgb(230, 230, 230); */
     -webkit-transform: translateZ(0);
     visibility: visible;
     -webkit-backface-visibility: hidden;
 }
 
-.sidebar__logo {
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    margin: 30px;
-}
-
-.sidebar__logo>img {
-    height: 45px;
-}
-
-.sidebar__item-inner {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    font-weight: 600;
-}
-
-header {
-    background-color: #3d5a80;
-    width: 100%;
-    display: block;
-    padding: 0.75em 1em;
-    text-align: center;
-    font-size: 25px;
-    color: honeydew;
-}
-
 .sidebar-nav {
-    width: 11.5em;
-    background-color: #c5c5c5;
+    width: 100%;
     height: 100%;
     font-weight: 400;
     font-size: 1.2em;
@@ -55,13 +25,15 @@ header {
     -webkit-overflow-scrolling: touch;
 }
 
-.ul, .nav-flyout {
-    list-style: none;
-    display: block;
+ul {
+    padding: 0px;
 }
 
-
-
+.nav-flyout {
+    list-style: none;
+    display: block;
+    padding: 0 0 0 20px;
+}
 
 li {
     margin-left: 0;
@@ -70,10 +42,55 @@ li {
     width: 100%;
 }
 
-a {
-    color: rgba(0, 0, 0, 0.9);
-    font-size: 18px;
-    padding: 0.7em 1em;
-    /* position: relative; */
+.sidebar .sidebar-nav .logo {
+    text-align: center;
+    font-size: 50px;
+    color: #0d6efd;
+    margin: 10px 0px 0px 0px;
+}
+
+.sidebar .sidebar-nav .after-logo {
+    text-align: center;
+    font-size: 30px;
+    color: #0d6efd;
+    margin: 0px 0px 20px 0px;
+}
+
+.sidebar .sidebar-nav ul li a {
+    display: block;
+    padding: 13px 20px;
+    border-bottom: 1px solid #ffffff;
+    color: #000000;
+    font-size: 16px;
+    position: relative;
+}
+
+.sidebar .sidebar-nav ul li a .icon {
+    color: #000000;
+    display: inline-block;
+}
+
+.sidebar .sidebar-nav ul li a:hover {
+    color: #000000;
+    background: #0d6dfd85;
+    border-right: 2px solid rgb(5, 68, 104);
+}
+
+.sidebar .sidebar-nav ul li a.active {
+    color: #000000;
+    background: #0d6dfd85;
+    border-right: 2px solid rgb(5, 68, 104);
+}
+
+.sidebar .sidebar-nav ul li a:hover .icon {
+    color: #000000;
+}
+
+.sidebar .sidebar-nav ul li a.active .icon {
+    color: #000000;
+}
+
+.sidebar .sidebar-nav ul li a:hover:before,
+.sidebar .sidebar-nav ul li a.active:before {
     display: block;
 }

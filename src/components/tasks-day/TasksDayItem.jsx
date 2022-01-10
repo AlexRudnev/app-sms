@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { Link } from "react-router-dom";
 import Axios from "axios";
 
 const TasksDayItem = (props) => {
@@ -26,9 +27,14 @@ const TasksDayItem = (props) => {
       addOrder = <i className="fas fa-check"></i>
    }
    return (
+
       <li className="flex-1 list-group-item " >
          <span className={addClass}>{name}</span>
-         <span className={addClass}>{mobile}</span>
+         <span className={addClass}>
+            <a href={`https://my.binotel.ua/?module=history&subject=${mobile}`} target="_blank" rel="noreferrer">
+               {mobile}
+            </a>
+         </span>
          <span className={addClass}>{date1}</span>
          <span className={addClass}>{addOrder}</span>
          <div className="fa-container">
@@ -39,7 +45,7 @@ const TasksDayItem = (props) => {
                deleteEmployee(id);
             }}></i> */}
          </div>
-      </li>
+      </li >
    )
 }
 

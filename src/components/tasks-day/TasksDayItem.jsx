@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
+import * as moment from 'moment'
 import Axios from "axios";
 
 const TasksDayItem = (props) => {
@@ -17,6 +17,7 @@ const TasksDayItem = (props) => {
    }
 
 
+
    let addClass = 'j-c'
    if (curentSmileColor) {
       addClass += ' ColorSmile';
@@ -26,7 +27,9 @@ const TasksDayItem = (props) => {
    if (ord) {
       addOrder = <i className="fas fa-check"></i>
    }
+   let NewDate = moment(date1).format("DD.MM.YYYY");
    return (
+
 
       <li className="flex-1 list-group-item " >
          <span className={addClass}>{name}</span>
@@ -35,15 +38,12 @@ const TasksDayItem = (props) => {
                {mobile}
             </a>
          </span>
-         <span className={addClass}>{date1}</span>
+         <span className={addClass}>{NewDate}</span>
          <span className={addClass}>{addOrder}</span>
          <div className="fa-container">
             <i className="far fa-smile fa-lg" onClick={() => {
                updateEmployeeWage(id);
             }}></i>
-            {/* <i className="fas fa-trash-alt fa-lg" onClick={() => {
-               deleteEmployee(id);
-            }}></i> */}
          </div>
       </li >
    )

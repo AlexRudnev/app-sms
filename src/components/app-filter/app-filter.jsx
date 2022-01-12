@@ -4,28 +4,6 @@ import "./app-filter.css";
 
 const AppFilter = (props) => {
    const { handlClick, greenClick } = props
-   // const buttonsData = [
-   //    { name: 'all', label: 'Был заказ' },
-   //    { name: 'rise', label: 'Зеленые' },
-   //    { name: 'moreThen1000', label: 'Без заказа' }
-   // ];
-
-   // const buttons = buttonsData.map(({ name, label }) => {
-   //    const active = props.filter === name;
-   //    const clazz = active ? 'btn-light' : 'btn-outline-light';
-   //    return (
-   //       <button type="button"
-   //          className={`btn ${clazz}`}
-   //          key={name}
-   //          onClick={() => props.onFilterSelect(name)}>
-   //          {label}
-   //       </button>
-   //    )
-   // })
-
-
-
-
 
 
    return (

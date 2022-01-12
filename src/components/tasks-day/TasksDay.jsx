@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import TasksDayItem from "./TasksDayItem"
 import AppFilter from "../app-filter/AppFilter";
+import DatePicker from "react-datepicker";
+import * as moment from 'moment'
+import axios from "axios";
 
-// import Axios from "axios";
 import './tasksDay.css'
 
 
@@ -11,24 +13,30 @@ const TasksDay = () => {
    const [error, setError] = useState(null);
    const [isLoaded, setIsLoaded] = useState(false);
    const [items, setItems] = useState([]);
+   const [startDate, setStartDate] = useState(new Date());
+   let dateCalendar = moment(startDate).format("DDMM")
 
-   // ------------------------- при загрузке страницы выводим из mySQL базу клиентов --------------------------------------//
+   // ------------------------- при загрузке страницы выводим из mySQL базу клиентов axios--------------------------------------//
    useEffect(() => {
-      fetch("/list")
-         .then(res => res.json())
-         .then(
-            (result) => {
-               setIsLoaded(true);
-               setItems(result);
-               setNowItem(result)
-
-            },
-            (error) => {
-               setIsLoaded(true);
-               setError(error);
+      axios.get("/search",
+         {
+            params: {
+               domain: dateCalendar
             }
-         )
-   }, [])
+         }
+      ).then((response) => {
+         setIsLoaded(true);
+         setItems(response.data);
+         setNowItem(response.data)
+         console.log(response.data);
+      }, (error) => {
+         setIsLoaded(true);
+         setError(error);
+      })
+      // eslint-disable-next-line
+   }, dateCalendar, [])
+
+
    useEffect(() => {
       setItems(items)
    }, [items])
@@ -53,40 +61,50 @@ const TasksDay = () => {
    } else {
       return (
          <>
-            <AppFilter
-               handlClick={(status) => {
-                  if (status === 'all') {
-                     setItems(nowItem)
-                  } else {
-                     let newItem = nowItem.filter(item => item.ord === status)
-                     setItems(newItem)
-                  }
-               }}
+            <ul className="ulFilter">
+               <li className="liFilter">
+                  <div className="btn-group">
+                     <AppFilter
+                        handlClick={(status) => {
+                           if (status === 'all') {
+                              setItems(nowItem)
+                           } else {
+                              let newItem = nowItem.filter(item => item.ord === status)
+                              setItems(newItem)
+                           }
+                        }}
+                        greenClick={(status) => {
+                           if (status === 'all') {
+                              setItems(nowItem)
+                              console.log(nowItem)
+                           } else {
+                              let newItem = nowItem.filter(item => item.ColorSmile === status)
+                              setItems(newItem)
+                           }
+                        }}
+                     />
+                  </div>
+               </li>
+               <li className="liFilterDate">
+                  <div className="btn-group right">
+                     <DatePicker
+                        selected={startDate}
+                        onChange={(dater) => setStartDate(dater)}
+                        dateFormat='dd.MM.yyyy'
+                        className="red-border"
+                     />
+                  </div>
+               </li>
+            </ul>
 
-               greenClick={(status) => {
-                  if (status === 'all') {
-                     setItems(nowItem)
-                     console.log(nowItem)
-                  } else {
-                     let newItem = nowItem.filter(item => item.ColorSmile === status)
-                     setItems(newItem)
-                  }
-               }}
-
-            />
             <ul className='list-group ' >
                <li className='flex-1 list-group-item first'>
                   <span className='j-c ' >Имя</span>
                   <span className='j-c '>Телефон</span>
                   <span className='j-c '>Последний звонок</span>
                   <span className='j-c '>Был заказ?</span>
-                  {/* <div>
-                     <i className="far fa-smile fa-lg"></i>
-                     <i className="fas fa-trash-alt fa-lg" ></i>
-                  </div> */}
                </li>
                {element}
-
             </ul >
             <div></div>
          </>

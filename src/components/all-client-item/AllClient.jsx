@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import EmployeesListItem from './AllClientItem'
 import Pagination from './pagination';
 import AppFilter from "../app-filter/app-filter";
+import FormSearch from '../form-search/FormSearch';
 
 
 
@@ -17,6 +18,7 @@ const AllClient = () => {
    const [items, setItems] = useState([]);
    const [currentPage, setCurrentPage] = useState(1)
    const [itemsPerPage] = useState(700)
+   // const [values, setValue] = useState('')
 
 
    // ------------------------- при загрузке страницы отмечаем галочками клиентов, у которых был заказ ------------------//
@@ -46,20 +48,22 @@ const AllClient = () => {
       setItems(items)
    }, [items])
 
-
-
+   // const filtredItesm = items.filter(client => {
+   //    return client.mobile?.toLowerCase().includes(values.toLowerCase())
+   // })
    // --------------------------------------- Считаем страницы пагинации --------------------------------------------------//
    const lastItemIndex = currentPage * itemsPerPage;
    const firstItemIndex = lastItemIndex - itemsPerPage;
    const currentItem = items.slice(firstItemIndex, lastItemIndex)
-
    const paginate = pageNumbers => setCurrentPage(pageNumbers)
 
 
    // --------------------------------------- перебираем массив базы клиентов ---------------------------------------------//
    const element = currentItem.map(item => {
       const { id, ...itemProps } = item;
-      // console.log(item)
+
+
+
 
       return (
          <EmployeesListItem
@@ -92,6 +96,23 @@ const AllClient = () => {
    } else {
       return (
          <div >
+
+            <FormSearch
+               setValuesMobile={((event) => {
+                  let a = nowItem.filter((client => {
+                     return client.mobile?.toLowerCase().includes(event.target.value.toLowerCase())
+                  }))
+                  setItems(a)
+               })}
+
+               setValuesName={((event) => {
+                  let a = nowItem.filter((client => {
+                     return client.name?.toLowerCase().includes(event.target.value.toLowerCase())
+                  }))
+                  setItems(a)
+               })}
+            />
+
             <AppFilter
                handlClick={(status) => {
                   if (status === 'all') {
@@ -122,10 +143,6 @@ const AllClient = () => {
                   <span className='j-c '>Телефон</span>
                   <span className='j-c '>Последний звонок</span>
                   <span className='j-c '>Был заказ?</span>
-                  {/* <div>
-                     <i className="far fa-smile fa-lg"></i>
-                     <i className="fas fa-trash-alt fa-lg" ></i>
-                  </div> */}
                </li>
                {element}
 

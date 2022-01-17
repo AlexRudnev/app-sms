@@ -4,7 +4,10 @@ const { body } = require('express-validator');
 const bodeParser = require('body-parser')
 const UserControler = require('./controlers/binotel-controler')
 const { Binotel2 } = require('./models')
+    // const turbosms = require('turbosms');
     // const cors = require('cors')
+
+
 
 var mysql = require('mysql');
 
@@ -107,7 +110,7 @@ app.get('/list', function(req, res) {
     })
 });
 
-// ---------------------------------- получаем всех по сегодняшней дате за все года по динамической переменной ---------------------- //
+// ----------------------------- получаем всех по сегодняшней дате за все года по динамической переменной ---------------------- //
 app.get('/search', (req, res) => {
     connection.query('SELECT id, name, mobile, ord, ColorSmile, date1, date2, date3, date4, date5 FROM  Binotel2s WHERE  ? IN( DATE_FORMAT(date1, "%d%m"),  DATE_FORMAT(date2, "%d%m"),  DATE_FORMAT(date3, "%d%m"), DATE_FORMAT(date4, "%d%m"), DATE_FORMAT(date5, "%d%m"), DATE_FORMAT(date6, "%d%m"), DATE_FORMAT(date7, "%d%m"), DATE_FORMAT(date8, "%d%m"), DATE_FORMAT(date9, "%d%m"), DATE_FORMAT(date10, "%d%m"), DATE_FORMAT(date11, "%d%m"), DATE_FORMAT(date12, "%d%m"), DATE_FORMAT(date13, "%d%m"), DATE_FORMAT(date14, "%d%m"), DATE_FORMAT(date15, "%d%m"), DATE_FORMAT(date16, "%d%m"), DATE_FORMAT(date17, "%d%m"), DATE_FORMAT(date18, "%d%m"), DATE_FORMAT(date19, "%d%m"), DATE_FORMAT(date20, "%d%m"))', [req.query.domain], (err, result) => {
         if (err) throw err;
@@ -115,6 +118,27 @@ app.get('/search', (req, res) => {
     })
 })
 
+
+// let TS_LOGIN = 'alex_rudnev';
+// let TS_PASS = 'Rudnev2337320';
+
+
+//---------------------------------------------------- отправка смс сообщений ----------------------------------//
+// app.post('/sms/sendsms', async(req, res) => {
+
+//     const authRes = await turbosms.auth(TS_LOGIN, TS_PASS);
+//     if (authRes === 'Неверный логин или пароль') {
+//         return res.status(403).send('Неверный логин или пароль к сервису');
+//     }
+//     if (req.body && req.body.number && req.body.message) {
+//         const number = req.body.number;
+//         const message = req.body.message;
+//         const result = await turbosms.sendSMS(number, message);
+//         let success = result[0] === 'Сообщения успешно отправлены' ? true : false;
+//         return res.status(200).send({ success, result });
+//     }
+//     res.status(405).send('Ошибка в параметрах');
+// });
 
 
 

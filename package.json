@@ -10,8 +10,10 @@
         "axios": "^0.24.0",
         "body-parser": "^1.19.0",
         "cors": "^2.8.5",
+        "cron": "^1.8.2",
         "express": "^4.17.1",
         "express-validator": "^6.13.0",
+        "lodash": "^4.17.21",
         "moment": "^2.29.1",
         "mysql": "^2.18.1",
         "mysql2": "^2.3.3",
@@ -24,6 +26,7 @@
         "react-scripts": "4.0.3",
         "sequelize": "^6.12.0-alpha.1",
         "sequelize-cli": "^6.3.0",
+        "turbosms": "^1.0.2",
         "web-vitals": "^1.0.1"
     },
     "scripts": {
@@ -34,6 +37,7 @@
         "server": "nodemon --inspect server/app.js",
         "dev": "run-p server start",
         "aaa": "node server/app",
+        "sms": "nodemon --inspect  server/send-sms.js",
         "vasya": "run-p aaa start"
     },
     "proxy": "http://localhost:4000",

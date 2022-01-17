@@ -99,17 +99,18 @@ const AllClient = () => {
 
             <FormSearch
                setValuesMobile={((event) => {
-                  let a = nowItem.filter((client => {
-                     return client.mobile?.toLowerCase().includes(event.target.value.toLowerCase())
-                  }))
-                  setItems(a)
-               })}
 
-               setValuesName={((event) => {
-                  let a = nowItem.filter((client => {
-                     return client.name?.toLowerCase().includes(event.target.value.toLowerCase())
-                  }))
-                  setItems(a)
+                  if (Number(event.target.value)) {
+                     let a = nowItem.filter((client => {
+                        return client.mobile?.toLowerCase().includes(event.target.value.toLowerCase())
+                     }))
+                     setItems(a)
+                  } else {
+                     let a = nowItem.filter((client => {
+                        return client.name?.toLowerCase().includes(event.target.value.toLowerCase())
+                     }))
+                     setItems(a)
+                  }
                })}
             />
 
